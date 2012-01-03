@@ -39,7 +39,7 @@ width: 1080px;
 padding:50px;
 margin: auto;
 text-align: justify;
-background-color: #35393E;
+background-color: #999;
 }
 .post{
 border-style: solid;
@@ -73,7 +73,7 @@ a{
 }
 
 span {
-	color: #AAA;
+	color: #555;
 	font-size: 10pt;
 }
 

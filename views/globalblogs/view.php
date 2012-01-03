@@ -6,6 +6,6 @@
 				}
 			?>
 		</ul>
-		<?php echo "<a href=?redpage=globalblogs&page=".($page-1)."><-Previous Page</a> &nbsp &nbsp &nbsp";
+		<?php if ($page>1) {echo "<a href=?redpage=globalblogs&page=".($page-1)."><-Previous Page</a> &nbsp &nbsp &nbsp";}
 		echo "<a href=?redpage=globalblogs&page=".($page+1).">Next Page-></a>"; ?>
 </div>
