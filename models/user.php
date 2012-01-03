@@ -36,8 +36,8 @@
 	//User login function
 	function login( $username, $password ){
 		$username=sanitize( $username );
-		$passwordHash=hash("sha1", $password );
-	
+		$password=hash("sha1", $password );
+
 		$res = mysql_query(
 			"SELECT
 				*
@@ -48,10 +48,10 @@
 				
 				AND
 	
-				password='$passwordHash'
+				password='$password'
 			  ");
 		if( mysql_num_rows($res) == 0 ){
-            		die("Login error, username not found");
+			return false;
        	 	}
 		mysql_query(
 			"UPDATE
@@ -61,8 +61,11 @@
 			WHERE
 				username = '$username'
 			");
-	
-        	return mysql_fetch_array( $res );	
+		$row=mysql_fetch_array( $res );	
+		$_SESSION['userid'] = $row['userid'];
+		$_SESSION['username'] = $username;
+
+        	return $row;
 	}
 	
 	//User registration function
@@ -99,7 +102,7 @@
 			VALUES
 				( '$userid' )
 			");
-			
+
 		if( !isset($insertToLogin)
 		   || !isset($insertToUser)
 		   || !isset($userid) ){

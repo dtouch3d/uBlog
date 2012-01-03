@@ -5,11 +5,12 @@
     require "models/user.php";
 	require "models/blog.php";
     //$user = getCurrentUser();
-    $redpage = 'register';
-	//$page = $_POST[ 'page' ];
+    $redpage = 'login';
+
 	if( isset( $_GET[ 'redpage' ] ) ){
 		$redpage = $_GET[ 'redpage' ];   
     }
+	
     /*
     if( $user == false && !in_array( $page, array( 'login', 'register', 'dologin', 'doregister' ) ) ){
         header( 'Location: ./?page=login' );

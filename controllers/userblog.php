@@ -1,17 +1,8 @@
 <?php
 require "/views/header.php";
-//require "/models/blog.php";
-/*----USABLE PARAMETERS FOR SHOW
-$id=;
-----these are default set---
-$sort='blogdate';
-$sortStyle='DESC';
-$ground=0;
-$ceiling=20;--------------------*/
 
-
-$id=9;		//demo
-//$_SESSION['userid'];
+//$id=9;		//demo
+$id=$_SESSION['userid'];
 $logged=true;
 if (isset($_GET['userid'])) {
 	$id=$_GET['userid'];

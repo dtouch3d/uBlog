@@ -1,6 +1,4 @@
 <?php
-		
-		
 		if (!isset($_POST['username'])||!isset($_POST['password'])||!isset($_POST['email'])) {
 			include "views/header.php";
 			include "views/register/view.php";
