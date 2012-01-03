@@ -3,12 +3,13 @@
     $settings = require( 'settings.php' );
 	require "models/db.php";
     require "models/user.php";
+	require "models/blog.php";
     //$user = getCurrentUser();
-    $page = 'register';
+    $redpage = 'register';
 	//$page = $_POST[ 'page' ];
-	//if( isset( $_GET[ 'page' ] ) ){
-     //$page = $_GET[ 'page' ];   
-    //}
+	if( isset( $_GET[ 'redpage' ] ) ){
+		$redpage = $_GET[ 'redpage' ];   
+    }
     /*
     if( $user == false && !in_array( $page, array( 'login', 'register', 'dologin', 'doregister' ) ) ){
         header( 'Location: ./?page=login' );
@@ -19,6 +20,6 @@
         die( "Could not find page $page." );
     }*/
  
-	require "controllers/{$page}.php";
+	require "controllers/{$redpage}.php";
 
 ?>

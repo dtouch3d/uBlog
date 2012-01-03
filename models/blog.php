@@ -10,6 +10,10 @@
 					* 
                 FROM
                     blog
+				LEFT JOIN
+					user
+				ON
+					blog.userid=user.userid
                 ORDER BY
 					$sort $sortStyle
                 LIMIT $ground, $ceiling ");
@@ -39,18 +43,19 @@
                 FROM
                     blog
 				WHERE
-					userid=:userid
+					blog.userid=$userid
                 ORDER BY
 					$sort $sortStyle
                 LIMIT $ground, $ceiling ");
         if(!mysql_num_rows($res)) {
-			return false;
+			die(mysql_error());
         }
 		$i=0;
 		$userblog=array();
         while ($row = mysql_fetch_array($res)) {
 			$userblog[i]=$row;
-			$i+=1;
+			$i++;
+			unset($userblog[$i]);
 		}
 		return $userblog;
 	}

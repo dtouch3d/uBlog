@@ -1,9 +1,6 @@
 <?php 
-	global $settings;
-    $settings = require( '../settings.php' );
-	require_once "../models/db.php";
-	include "../models/blog.php";
-	include "../views/header.php";
+	
+	include "views/header.php";
 	
 
 	if (isset($_GET['page'])) {
@@ -17,7 +14,7 @@
 		$blog=allBlogPosts($ground, $ceiling, 'blogdate');
 	}
 	
-	include "../views/globalblogs/view.php";
-	include "../views/footer.php";
+	include "views/globalblogs/view.php";
+	include "views/footer.php";
 	
 ?>

@@ -1,0 +1,41 @@
+body{
+    background-color: #6D7B8D;
+    font-family: helvetica, sans-serif;
+    color: #eeeeee;
+}
+.container{
+	width: 900px;
+	margin: auto;
+	text-align: justify;
+	background-color: #646D7E;
+}
+.post{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #dddddd;
+}
+h3{
+	color: #ffffff;
+	text-align:left;
+	margin: 0px 10px;
+}
+.date{
+	text-align:left;
+	margin: 0px 17px;
+	color: #eeeeee;
+}
+a{
+	color: #202636;
+	text-decoration: none;
+}
+
+span {
+	color: #333;
+	font-size: 10pt;
+}
+
+.footer {
+	text-align: center;
+	border-top: 1px solid #777;
+	text-decoration: none;
+}

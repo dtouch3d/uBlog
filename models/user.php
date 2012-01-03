@@ -2,22 +2,35 @@
 	//A function that given the userid returns the details of the profile
 	//of the requested user
 	function getProfileDetails($userid) {
-		if (!$userid) {
-			die("Not valid userid!");
-        }
+		
 		$res = mysql_query(
                 "SELECT
                     *
                 FROM
                     user
+				INNER JOIN
+					login
+				ON
+					user.userid=login.userid
                 WHERE
-                    userid = $userid
+                    user.userid = '$userid'
                 LIMIT 1");
-        if(!mysql_num_rows($res)) {
-                die("Error fetching from MySQL profile details");
+        if (!mysql_num_rows($res)) {
+                die(mysql_error());
         }
         $row = mysql_fetch_array( $res );
 			return $row;
+	}
+	
+	function updateProfile($userid, $name, $surname, $location, $occupation, $interests, $website) {
+	
+	$res = mysql_query(
+			"UPDATE
+				user 
+			SET 
+				name='$name', surname='$surname', location='$location', occupation='$occupation', interests='$interests', website='$website' 
+			WHERE 
+				userid='$userid'");
 	}
 	
 	//User login function
@@ -60,7 +73,7 @@
 		
 		$exists = mysql_query(
 			"SELECT
-				loginid
+				userid
 			FROM
 				login
 			WHERE
@@ -78,40 +91,32 @@
 				( '$name', '$passwordHash', '$email', NOW() )
 			");
 
-		
-		$loginId = mysql_query(
-			"SELECT
-				loginid
-			FROM
-				login
-			WHERE
-				username = '$name'
-			");
+		$userid = mysql_insert_id();
 
 		$insertToUser = mysql_query(
 			"INSERT INTO
-				user ( loginid, email )
+				user ( userid )
 			VALUES
-				( '$loginId', '$email' )
+				( '$userid' )
 			");
 			
 		if( !isset($insertToLogin)
 		   || !isset($insertToUser)
-		   || !isset($loginId) ){
+		   || !isset($userid) ){
         	    	//If something went wrong, delete added records, just in case.
         	    	//Basically maybe it doesn't work really well, what if duplicate username???
 			mysql_query(
 				"DELETE FROM
 					login
 				 WHERE
-					loginid = '$loginId'
+					userid = '$userId'
 				");
 
 			mysql_query(
 				"DELETE FROM
 					user
 				WHERE
-					loginid = '$loginId'
+					userid = '$userId'
 				");
 
 			die( "MySQL error during register" );
