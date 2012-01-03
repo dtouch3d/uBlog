@@ -34,9 +34,7 @@
 	//A function that takes the userid and the number of results results requested (smallest and biggest) and the
 	//way they are sorted (asc or desc) and returns all the information of the blogs from this user
 	function userBlogPosts($userid, $ground, $ceiling, $sort, $sortStyle='DESC') {
-		if (!$ground||!$ceiling||!$sort) {
-			return false;
-        }
+
 		$res = mysql_query(
                "SELECT
 					* 
@@ -53,9 +51,19 @@
 		$i=0;
 		$userblog=array();
         while ($row = mysql_fetch_array($res)) {
-			$userblog[i]=$row;
+			$userblog[$i]=$row;
 			$i++;
 			unset($userblog[$i]);
 		}
 		return $userblog;
+	}
+	
+	//function takes userid, title and text of a blog post and inserts it into the database
+	function postBlog($userid, $title, $text) {
+		$res=mysql_query(
+			"INSERT INTO 
+				blog ( userid, title, stuff, blogdate )
+			VALUES
+				( '$userid', '$title', '$text', NOW() )
+			");
 	}
