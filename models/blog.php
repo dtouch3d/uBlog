@@ -45,9 +45,9 @@
                 ORDER BY
 					$sort $sortStyle
                 LIMIT $ground, $ceiling ");
-        if(!mysql_num_rows($res)) {
-			die(mysql_error());
-        }
+        //if(!mysql_num_rows($res)) {
+			//die(mysql_error());
+        //}
 		$i=0;
 		$userblog=array();
         while ($row = mysql_fetch_array($res)) {

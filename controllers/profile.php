@@ -12,7 +12,7 @@
 		$userid=$_GET['userid'];
 		$logged=false;
 	}
-
+	
 	$user = getProfileDetails($userid);
 	
 	

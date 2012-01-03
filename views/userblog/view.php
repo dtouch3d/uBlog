@@ -2,14 +2,16 @@
 
 <div id="userbloglist">
 		<ul class="list" id="userblogs">
-			<?php 
+			<?php if (!$posts) {
+					echo "There are no posts to show";
+				}
+				else {
 				for($i=0;$i<count($userblog);$i++) {
 					echo "<li><a href=\"?redpage=userblog&userid=".$userblog[$i]['userid']."\">".$userblog[$i]['title']."</a></li>";
 				}
-			?>
-		</ul>
-		<?php if ($page>1) {echo "<a href=?redpage=userblog&page=".($page-1)."><-Previous Page</a> &nbsp &nbsp &nbsp";}
-		echo "<a href=?redpage=userblog&page=".($page+1).">Next Page-></a>"; ?>
+		echo "</ul>";
+		if ($page>1) {echo "<a href=?redpage=userblog&page=".($page-1)."><-Previous Page</a> &nbsp &nbsp &nbsp";}
+		echo "<a href=?redpage=userblog&page=".($page+1).">Next Page-></a>"; }?>
 </div>
 
 <div id="newpost">

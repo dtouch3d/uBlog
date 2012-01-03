@@ -6,7 +6,7 @@
 		}
 		else {
 			register($_POST['username'], $_POST['password'], $_POST['email']);
-			header('Location: ?redpage=globalblogs');
+			header('Location: ?redpage=update_profile');
 		}			
 		
 		

@@ -3,6 +3,7 @@
 			require_once('models/user.php');
 			global $user;
 			$userid=$_SESSION['userid'];
+			echo $_SESSION['userid'];
 			$user = getProfileDetails($userid);
 			require "views/header.php";
 			require "views/update_profile/view.php";

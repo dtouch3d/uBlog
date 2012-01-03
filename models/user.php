@@ -124,6 +124,8 @@
 
 			die( "MySQL error during register" );
 		}
+			$_SESSION['userid'] = $userid;
+			$_SESSION['username'] = $name;
         	return array(
 			//mysql_insert_id return last auto-incremented value from last query
 			//in this case, userid from table user
