@@ -11,15 +11,15 @@
                 FROM
                     blog
 				LEFT JOIN
-					user
+					login
 				ON
-					blog.userid=user.userid
+					blog.userid=login.userid
                 ORDER BY
 					$sort $sortStyle
                 LIMIT $ground, $ceiling ");
-        if(!mysql_num_rows($res)) {
-			die(mysql_error());
-        }
+        //if(!mysql_num_rows($res)) {
+		//	die(mysql_error());
+        //}
 		$i=0;
 		$blog=array();
 		$row=array();
@@ -60,6 +60,8 @@
 	
 	//function takes userid, title and text of a blog post and inserts it into the database
 	function postBlog($userid, $title, $text) {
+		$title=mysql_real_escape_string($title);
+		$text=mysql_real_escape_string($text);
 		$res=mysql_query(
 			"INSERT INTO 
 				blog ( userid, title, stuff, blogdate )
@@ -67,3 +69,22 @@
 				( '$userid', '$title', '$text', NOW() )
 			");
 	}
+	
+	//function that given the blogid, returns the content of one blog
+	function blog($blogid) {
+		$res=mysql_query(
+			"SELECT
+				*
+			FROM 
+				blog
+			WHERE
+				blogid=$blogid");
+	
+	if(!mysql_num_rows($res)) {
+			die(mysql_error());
+    }
+	
+	$row=mysql_fetch_array($res);
+	return $row;
+	}
+	

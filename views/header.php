@@ -14,7 +14,9 @@
 <p><a class='menuit' href="index.php?redpage=globalblogs">Global</a>
 <a class='menuit' href="index.php?redpage=userblog">Personal</a>
 <a class='menuit' href="index.php?redpage=profile">Profile</a>
-<?php if (!isset($_SESSION['userid'])){ echo "<a class='menuit' href=\"index.php?redpage=register\">Register/Login</a>";}?>
+<?php 
+	  if (isset($_SESSION['userid'])) {
+			echo "<a class='menuit' href=\"index.php?redpage=logout\">Logout</a>";}?>
 </p>
 </div>
 <div id='box'> </div>
