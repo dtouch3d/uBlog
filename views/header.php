@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class='header'>
-<h1>uBlog</h1>
+<a href="index.php"><img src="images/logo.png"/></a>
 <p><a class='menuit' href="index.php?redpage=globalblogs">Global</a>
 <a class='menuit' href="index.php?redpage=userblog">Personal</a>
 <a class='menuit' href="index.php?redpage=profile">Profile</a>
