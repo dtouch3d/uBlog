@@ -15,7 +15,11 @@
 	if( isset( $_GET[ 'redpage' ] )&&isset($_SESSION['userid']) ){
 		$redpage = $_GET[ 'redpage' ];   
     }
-	
+	if (isset($_GET['redpage'])) {
+		if ($_GET['redpage']=='register'&&!isset($_SESSION['userid'])) {
+			$redpage='register';
+		}
+	}
     /*
     if( $user == false && !in_array( $page, array( 'login', 'register', 'dologin', 'doregister' ) ) ){
         header( 'Location: ./?page=login' );
