@@ -34,6 +34,6 @@
 				}
 		echo "</ul>";
 		if ($page>1) {echo "<a href=?redpage=userblog&page=".($page-1)."><-Previous Page</a> &nbsp &nbsp &nbsp";}
-		if ($posts) {echo "<a href=?redpage=userblog&page=".($page+1).">Next Page-></a>"; }?>
+		if ($posts&&count($userblog)==10) {echo "<a href=?redpage=userblog&page=".($page+1).">Next Page-></a>"; }?>
 </div>
 

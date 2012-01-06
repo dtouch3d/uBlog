@@ -88,3 +88,46 @@
 	return $row;
 	}
 	
+	//function that given the blogid returns the comments of that blog post
+	function getComments($blogid) {
+		$res=mysql_query(
+			"SELECT
+				*
+			FROM
+				comment
+			LEFT JOIN
+				login
+			ON
+				comment.userid=login.userid
+			WHERE
+				comment.blogid='$blogid'
+			ORDER BY
+				date DESC");
+		
+		if (!mysql_num_rows($res)) {
+			return $comment=0;
+		}
+		
+		$i=0;
+		$comment=array();
+		$row=array();
+        while ($row = mysql_fetch_assoc($res)) {
+			$comment[$i]=$row;
+			$i++;
+			unset($comment[$i]); 
+		}
+		return $comment;
+	}
+	
+	//function that given the blogid, userid and the comment, posts a comment in the database
+	function insertComment($blogid, $userid, $text) {
+		$text=mysql_real_escape_string($text);
+		$res=mysql_query(
+			"INSERT INTO 
+				comment ( blogid, userid, text, date )
+			VALUES
+				( '$blogid', '$userid', '$text', NOW() )
+			");
+	}
+				
+	

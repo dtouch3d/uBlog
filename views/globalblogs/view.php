@@ -15,5 +15,5 @@
 			?>
 		</ul>
 		<?php if ($page>1) {echo "<a href=?redpage=globalblogs&page=".($page-1)."><-Previous Page</a> &nbsp &nbsp &nbsp";}
-		if ($posts) {echo "<a href=?redpage=globalblogs&page=".($page+1).">Next Page-></a>"; }?>
+		if ($posts&&count($blogs)==10) {echo "<a href=?redpage=globalblogs&page=".($page+1).">Next Page-></a>"; }?>
 </div>

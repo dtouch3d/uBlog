@@ -14,7 +14,6 @@
 			<li>Occupation: <?php $input='occupation'; echo $user['occupation']; ?></li>
 			<li>Interests: <?php $input='interests'; echo $user['interests']; ?></li>
 			<li>Website: <?php $input='website'; echo $user['website']; ?></li>
-			<li>Posts: <?php echo $user['posts']?></li>
 		</ul>
 		<?php if ($logged) {
 				echo "<a href='index.php?redpage=update_profile'>Edit</a>";}

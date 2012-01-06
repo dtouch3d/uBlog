@@ -10,6 +10,7 @@ text-align: justify;
 font-size:16px;
 background-color: #33536c;
 border:1px solid black;
+border-radius: 20px;
 }
 .header a{
 color: #74b65f;
@@ -40,6 +41,10 @@ padding:50px;
 margin: auto;
 text-align: justify;
 background-color: #999;
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
 }
 .post{
 border-style: solid;
