@@ -9,7 +9,7 @@
 						<h3><a href=\"?redpage=blog&id=".$blogs[$i]['blogid']."\">".$blogs[$i]['title']."</a><h3>
 						<p class='date'>Posted by: <a href=\"?redpage=profile&userid=".$blogs[$i]['userid']."\">".$blogs[$i]['username']."</a>
 						on ".$blogs[$i]['blogdate']."</p>
-						<p>".substr($blogs[$i]['stuff'],0,150)."</p></li>";
+						<p>".substr($blogs[$i]['stuff'],0,150)."</p></div></li>";
 					}
 				}
 			?>

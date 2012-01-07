@@ -30,7 +30,7 @@
 						echo "<li><div class='comment'>
 						<p class='date'>Posted by: <a href=\"?redpage=profile&userid=".$comment[$i]['userid']."\">".$comment[$i]['username']."</a>
 						on ".$comment[$i]['date']."</p>
-						<p>".substr($comment[$i]['text'],0,256)."</p></li>";
+						<p>".substr($comment[$i]['text'],0,256)."</p></div></li>";
 					}
 				}
 			?>

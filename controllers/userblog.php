@@ -1,5 +1,5 @@
 <?php
-require "/views/header.php";
+include "views/header.php";
 
 //$id=9;		//demo
 $id=$_SESSION['userid'];

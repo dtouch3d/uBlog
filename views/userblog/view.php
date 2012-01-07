@@ -29,7 +29,7 @@
 						echo "<li><div class='post'>
 						<h3><a href=\"?redpage=blog&id=".$userblog[$i]['blogid']."\">".$userblog[$i]['title']."</a><h3>
 						<p class='date'>".$userblog[$i]['blogdate']."</p>
-						<p>".substr($userblog[$i]['stuff'],0,150)."</p></li>";
+						<p>".substr($userblog[$i]['stuff'],0,150)."</p></div></li>";
 					}
 				}
 		echo "</ul>";
